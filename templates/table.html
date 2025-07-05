@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap for base styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='weather_background.jpg') }}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 12px;
+            max-width: 900px;
+            margin: 30px auto 10px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        }
+
+        .overlay h1 {
+            color: white;
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .table-container {
+            max-width: 95%;
+            margin: auto;
+            margin-top: 15px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            overflow-x: auto;
+        }
+
+        .table {
+            color: #000;
+            font-size: 0.85rem;
+        }
+
+        .table th {
+            background-color: #343a40;
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .overlay h1 {
+                font-size: 1.4rem;
+            }
+            .table {
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="overlay text-center">
+        <h1>Weather Forecasting Using Quantum Machine Learning</h1>
+    </div>
+
+    <div class="table-container">
+        {% for table in tables %}
+            {{ table|safe }}
+        {% endfor %}
+    </div>
+
+</body>
+</html>

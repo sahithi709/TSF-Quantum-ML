@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Array Viewer</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        table { border-collapse: collapse; margin-top: 20px; }
+        td, th { padding: 8px 12px; border: 1px solid #ccc; text-align: center; }
+    </style>
+</head>
+<body>
+    <h2>Preview of Predictions (from pred.npy)</h2>
+    <table>
+        {% for row in data %}
+        <tr>
+            {% for item in row %}
+            <td>{{ item }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
